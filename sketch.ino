@@ -1,4 +1,4 @@
-// CODEPLANT TECH 01: UNO R3 + Arduino IDE 2
+// CODEPLANT TECH 01: UNO R3 + Arduino IDE
 // LED L: 1 second on, 1 second off. Serial: one line every 2 seconds.
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);

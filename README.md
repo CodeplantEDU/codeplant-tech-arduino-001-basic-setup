@@ -115,3 +115,36 @@ UNO READY
 이 안내문과 Documentation 참고 화면 및 이를 포함한 표지 카드는 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)으로 제공합니다. Help Center 화면은 원본 저장소의 라이선스를 따르며, UNO 사진은 [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)입니다. 상표와 공식 로고의 권리는 각 소유자에게 있습니다.
 
 자료 확인: 2026-10-05. 카테고리: 기본 세팅 · 파랑. 다음 편: 신호처리.
+
+## 전체 예제코드
+
+아래 코드를 모두 복사하거나 sketch.ino를 열어 업로드하세요. 카드에는 핵심 부분만 담았습니다.
+
+~~~cpp
+// CODEPLANT TECH 01: UNO R3 + Arduino IDE
+// LED L: 1 second on, 1 second off. Serial: one line every 2 seconds.
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  Serial.println("UNO READY");
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+~~~
+
+| 코드 | 하는 일 |
+| --- | --- |
+| pinMode(LED_BUILTIN, OUTPUT) | 보드의 L LED를 출력으로 설정 |
+| Serial.begin(9600) | 9600 속도로 PC와 통신 준비 |
+| digitalWrite(..., HIGH) | L LED 켜기 |
+| Serial.println("UNO READY") | 시리얼 모니터로 문장 보내기 |
+| delay(1000) | 1초 기다리기 |
+| digitalWrite(..., LOW) | L LED 끄기 |
+
+setup()은 시작할 때 한 번, loop()는 계속 반복합니다. 대기가 두 번이므로 문장은 약 2초 간격입니다.
+
